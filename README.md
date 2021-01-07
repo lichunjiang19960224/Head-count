@@ -5,4 +5,4 @@
 
 Of cause, the name, **Input**, can be changed according to your need. 
 
-If the name, **Input**, is changed, you need notice the input-dir in **main_test.py**
+If the name, **Input**, is changed, you need notice that the input-dir need synchronizing in **main_test.py**.
