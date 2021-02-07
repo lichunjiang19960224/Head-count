@@ -12,10 +12,15 @@ if os.path.exists(dir):
     shutil.rmtree(dir)
 os.mkdir(dir)
 txtx = open(dir + 'test.txt','w')
+flag = 0
 while (cap.isOpened()):
     success, frame = cap.read()
+    if flag == 2:
+        flag = flag + 1
+        continue
     if success == False:
         break
+    flag = 0
     cv2.imwrite(dir+'0'*(4-len('%d'%i))+'%d'%i+'.png',frame)
     i += 1
     txtx.write(dir+'0'*(4-len('%d'%i))+'%d'%i+'.png ')
