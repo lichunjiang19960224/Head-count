@@ -18,7 +18,7 @@ import validate_data_provider
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
 # dataset_dir = "./data_for_test/"
-dataset_dir = "3MP4/"
+dataset_dir = "Input/"
 output_density_map = "./cmap_output"
 batch_size = 1
 epoch = 1
@@ -32,19 +32,6 @@ if __name__ == "__main__":
     y = tf.placeholder(tf.float32, shape=[None, None, None, 1], name="label")
     estimated_density_map = SANet_model.scale_aggregation_network(x)
     estimated_counting = tf.reduce_sum(estimated_density_map, reduction_indices=[1, 2, 3], name="crowd_counting")
-    ground_truth_counting = tf.cast(tf.reduce_sum(y, reduction_indices=[1, 2, 3]), tf.float32)
-
-    loss_e = tf.losses.mean_squared_error(y, predictions=estimated_density_map)
-    loss_c = utils.structural_similarity_index_metric(estimated_density_map, y)
-    loss = tf.add(loss_e, tf.multiply(loss_c_weight, loss_c))
-    loss = tf.multiply(loss, loss_weight)
-
-    train_op = tf.train.AdamOptimizer(learning_rate=1e-5).minimize(loss=loss, global_step=tf.train.get_global_step())
-    eval_metric_ops = {
-        'MAE': tf.reduce_mean(tf.abs(tf.subtract(estimated_counting, ground_truth_counting)), axis=0, name="MAE"),
-        'MSE': tf.reduce_mean(tf.square(tf.subtract(ground_truth_counting, estimated_counting)), axis=0, name="MSE"),
-    }
-
     #　set tf saver
     saver = tf.train.Saver()
 
