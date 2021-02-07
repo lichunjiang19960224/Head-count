@@ -27,13 +27,13 @@ class query_window(QtWidgets.QMainWindow):
         self.sess.run(init_op)
         self.__init()
         self.i = 0
-        self.timer = QTimer()
-        # 定时器结束，触发showTime方法
-        self.timer.start(10)
-        self.timer.timeout.connect(self.det)
-        # self.ui.
-        # self.ui.Start.clicked.connect(self.query_formula)
-        # 给button 的 点击动作绑定一个事件处理函数
+        # self.timer = QTimer()
+        #         # # 定时器结束，触发showTime方法
+        #         # self.timer.start(10)
+        #         # self.timer.timeout.connect(self.det)
+        #         # self.ui.
+        #         # self.ui.Start.clicked.connect(self.query_formula)
+        #         # 给button 的 点击动作绑定一个事件处理函数
     def __init(self):
         self.validate_dataset = validate_data_provider.DataSet(ops.join(dataset_dir, 'test.txt'))
         figure, (self.origin, self.pred) = plt.subplots(1, 2, figsize=(14, 4))
@@ -54,7 +54,7 @@ class query_window(QtWidgets.QMainWindow):
             os.makedirs(self.density_map_dir)
         if not ops.exists(self.density_map_dir_seperate):
             os.makedirs(self.density_map_dir_seperate)
-        # self.ui.text.append('finish init!')
+        self.ui.text.append('finish init!')
 
     def det(self):
         if self.i < self.image_validate_num:
