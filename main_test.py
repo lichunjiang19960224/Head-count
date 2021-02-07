@@ -80,7 +80,7 @@ if __name__ == "__main__":
                     est_counting = sess.run(estimated_counting, feed_dict={estimated_density_map: density_map_full})
                     b = time.time()
                     
-                    origin.imshow(gt_imgs[0][:, :, ::-1]) #　BGR to RGB
+                    origin.imshow(gt_imgs[0][:, :, ::-1]) #BGR to RGB
                     origin.set_title('origin Image')
                     pred.imshow(np.squeeze(density_map_full), cmap=plt.cm.jet)
                     pred.set_title('estimated_density_map {}'.format(est_counting))
