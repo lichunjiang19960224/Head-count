@@ -41,7 +41,7 @@ class query_window(QtWidgets.QMainWindow):
         self.y = tf.placeholder(tf.float32, shape=[None, None, None, 1], name="label")
         self.estimated_density_map = SANet_model.scale_aggregation_network(self.x)
         self.estimated_counting = tf.reduce_sum(self.estimated_density_map, reduction_indices=[1, 2, 3], name="crowd_counting")
-        # 　set tf saver
+        # set tf saver
         saver = tf.train.Saver()
 
         weights_path = './checkpoint_dir/counting_epoch393.ckpt'
