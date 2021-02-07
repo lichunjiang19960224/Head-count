@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1096</width>
-    <height>653</height>
+    <height>618</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,10 +39,10 @@
    <widget class="QLabel" name="single">
     <property name="geometry">
      <rect>
-      <x>1010</x>
-      <y>30</y>
-      <width>16</width>
-      <height>16</height>
+      <x>985</x>
+      <y>10</y>
+      <width>71</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -55,8 +55,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>1030</x>
-      <y>30</y>
+      <x>1060</x>
+      <y>10</y>
       <width>31</width>
       <height>16</height>
      </rect>
@@ -69,9 +69,9 @@
     <property name="geometry">
      <rect>
       <x>980</x>
-      <y>60</y>
+      <y>40</y>
       <width>111</width>
-      <height>31</height>
+      <height>511</height>
      </rect>
     </property>
    </widget>
