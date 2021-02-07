@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1096, 618)
+        MainWindow.resize(1230, 610)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.image = QtWidgets.QLabel(self.centralwidget)
@@ -33,11 +33,14 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(1060, 10, 31, 16))
         self.label.setObjectName("label")
         self.text = QtWidgets.QTextBrowser(self.centralwidget)
-        self.text.setGeometry(QtCore.QRect(980, 40, 111, 511))
+        self.text.setGeometry(QtCore.QRect(980, 40, 231, 511))
         self.text.setObjectName("text")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(1120, 10, 75, 23))
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1096, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1230, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -51,3 +54,4 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "信号"))
+        self.pushButton.setText(_translate("MainWindow", "Start"))
