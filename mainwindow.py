@@ -35,9 +35,9 @@ class Ui_MainWindow(object):
         self.text = QtWidgets.QTextBrowser(self.centralwidget)
         self.text.setGeometry(QtCore.QRect(730, 50, 231, 161))
         self.text.setObjectName("text")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(870, 10, 75, 23))
-        self.pushButton.setObjectName("pushButton")
+        self.Start = QtWidgets.QPushButton(self.centralwidget)
+        self.Start.setGeometry(QtCore.QRect(870, 10, 75, 23))
+        self.Start.setObjectName("Start")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 977, 23))
@@ -54,4 +54,4 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "信号"))
-        self.pushButton.setText(_translate("MainWindow", "Start"))
+        self.Start.setText(_translate("MainWindow", "Start"))
