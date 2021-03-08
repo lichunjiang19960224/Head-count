@@ -27,13 +27,15 @@ class query_window(QtWidgets.QMainWindow):
         self.sess.run(init_op)
         self.__init()
         self.i = 0
-        # self.timer = QTimer()
-        #         # # 定时器结束，触发showTime方法
-        #         # self.timer.start(10)
-        #         # self.timer.timeout.connect(self.det)
-        #         # self.ui.
-        #         # self.ui.Start.clicked.connect(self.query_formula)
-        #         # 给button 的 点击动作绑定一个事件处理函数
+        # self.ui.
+        self.ui.Start.clicked.connect(self.query_formula)
+                # 给button 的 点击动作绑定一个事件处理函数
+    def query_formula(self):
+        self.timer = QTimer()
+        # # 定时器结束，触发showTime方法
+        self.timer.start(1000)
+        self.timer.timeout.connect(self.det)
+
     def __init(self):
         self.validate_dataset = validate_data_provider.DataSet(ops.join(dataset_dir, 'test.txt'))
         figure, (self.origin, self.pred) = plt.subplots(1, 2, figsize=(14, 4))
@@ -108,11 +110,15 @@ class query_window(QtWidgets.QMainWindow):
 
             density_map_path_seperate = self.density_map_dir_seperate + "/" + str(self.i + 1) + "_dmap" + ".png"
             plt.imsave(density_map_path_seperate, np.squeeze(density_map_full), cmap=plt.cm.jet)
-            gt_ = copy.deepcopy(gt_imgs[0])
-            cv2.putText(gt_, 'frame: %d fps: %.2f num: %d' % (self.i, b - a, est_counting[0]),
-                        (0, int(15 * 2)), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), thickness=2)
-            jiqir = cv2.cvtColor(gt_, cv2.COLOR_BGR2RGB)
-            self.ui.image.setScaledContents(True)
+            # gt_ = copy.deepcopy(gt_imgs[0])
+            # cv2.putText(gt_, 'frame: %d fps: %.2f num: %d' % (self.i, b - a, est_counting[0]),
+            #             (0, int(15 * 2)), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), thickness=2)
+            gt_ = cv2.imread(density_map_path)
+            jiqir = cv2.resize(gt_,(700, 200))
+            # jiqir = cv2.cvtColor(gt_, cv2.COLOR_BGR2RGB)
+            # cv2.imshow('1',jiqir)
+            # cv2.waitKey(0)
+            # self.ui.image.setScaledContents(True)
             Q_img = QImage(jiqir,
                            jiqir.shape[0],
                            jiqir.shape[1],
